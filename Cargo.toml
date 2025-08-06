@@ -4,3 +4,10 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+aes-gcm = "0.10"                           # AES-GCM encryption
+aes = "0.8"                                # AES block cipher
+aead = "0.5"                               # Trait for encryption
+rand = "0.8.5"                             # Random number generation
+argon2 = "0.5"                             # Password hashing
+base64 = "0.21.0"                          # Base64 encoding/decoding
+serde = { version = "1.0", features = ["derive"] }  # Serialization

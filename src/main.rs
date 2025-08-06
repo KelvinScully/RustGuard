@@ -1,13 +1,18 @@
+
+mod crypto;
+
 fn main() {
-    let mut is_closing:bool = false;
+    let key: [u8; 32] = *b"ThisIsASecretKeyForAES256!!!1234"; // Must be exactly 32 bytes
 
-    let mut x = 0;
-    while !is_closing {
-        if x > 1000 {
-            is_closing = true;
-            break;
-        }
+    let message: &str = "RustGuard is secure!";
+    println!("Original: {}", message);
 
-        x = x + 1;
-    }
+    // Encrypt the message
+    let (nonce, encrypted) = crypto::encrypt_message(&key, message);
+    println!("Encrypted (base64): {}", encrypted);
+    println!("Nonce (base64): {}", nonce);
+
+    // Decrypt the message
+    let decrypted = crypto::decrypt_message(&key, &nonce, &encrypted);
+    println!("Decrypted: {}", decrypted);
 }
