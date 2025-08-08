@@ -11,4 +11,6 @@ rand = "0.8.5"                             # Random number generation
 argon2 = "0.5"                             # Password hashing
 base64 = "0.21.0"                          # Base64 encoding/decoding
 serde = { version = "1.0", features = ["derive"] }  # Serialization
+clap = { version = "4.0", features = ["derive"] } # Command-line argument parsing
+serde_json = "1.0"
 rusqlite = { version = "0.37", features = ["bundled"] }
